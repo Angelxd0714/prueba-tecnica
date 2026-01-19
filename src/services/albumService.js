@@ -1,7 +1,6 @@
 const API_URL = 'https://jsonplaceholder.typicode.com/albums';
 
 export const albumService = {
-  // Obtener todos los álbumes
   getAllAlbums: async () => {
     try {
       const response = await fetch(API_URL);
@@ -16,7 +15,6 @@ export const albumService = {
     }
   },
 
-  // Obtener un álbum por ID
   getAlbumById: async (id) => {
     try {
       const response = await fetch(`${API_URL}/${id}`);
@@ -31,11 +29,10 @@ export const albumService = {
     }
   },
 
-  // Estructurar datos de álbumes con información adicional
   structureAlbums: (albums) => {
     return albums.map(album => ({
       ...album,
-      photoCount: Math.floor(Math.random() * 50) + 10, // Simulamos fotos
+      photoCount: Math.floor(Math.random() * 50) + 10,
       formattedId: `Album #${album.id}`,
       formattedTitle: album.title.charAt(0).toUpperCase() + album.title.slice(1)
     }));

@@ -90,7 +90,6 @@ export const Albums = () => {
 
       {error && <div className="error-message">{error}</div>}
 
-
       <div className="albums-grid">
         {currentAlbums.length > 0 ? (
           currentAlbums.map(album => (

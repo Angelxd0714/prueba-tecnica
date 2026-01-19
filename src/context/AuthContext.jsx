@@ -1,20 +1,16 @@
 import React, { createContext, useContext, useState, useCallback } from 'react';
 
-// Create the Auth Context
 const AuthContext = createContext(null);
 
-// AuthProvider Component
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  // Login function
   const login = useCallback(async (username, password) => {
     setLoading(true);
     setError(null);
     try {
-      // Hardcoded credentials
       if (username === 'admin' && password === '1234') {
         const mockUser = { id: 1, username, name: 'Administrador' };
         setUser(mockUser);
@@ -31,27 +27,16 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Logout function
   const logout = useCallback(() => {
     setUser(null);
     localStorage.removeItem('user');
     setError(null);
   }, []);
 
-  // Signup function
   const signup = useCallback(async (email, password, name) => {
     setLoading(true);
     setError(null);
     try {
-      // Replace with your actual API call
-      // const response = await fetch('/api/signup', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email, password, name }),
-      // });
-      // const data = await response.json();
-      
-      // Mock signup
       const mockUser = { id: 1, email, name };
       setUser(mockUser);
       localStorage.setItem('user', JSON.stringify(mockUser));
@@ -64,7 +49,6 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  // Check if user is authenticated
   const isAuthenticated = !!user;
 
   const value = {
@@ -80,7 +64,6 @@ export const AuthProvider = ({ children }) => {
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };
 
-// Custom hook to use Auth Context
 export const useAuth = () => {
   const context = useContext(AuthContext);
   if (!context) {

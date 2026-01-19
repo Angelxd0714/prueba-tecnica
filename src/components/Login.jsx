@@ -14,11 +14,9 @@ export const Login = () => {
       setUsername('');
       setPassword('');
     } catch (err) {
-      // Error is handled by the context
     }
   };
 
-  // If already logged in, show user info
   if (user) {
     return (
       <div className="login-container">

@@ -1,70 +1,110 @@
-# GitHub Codespaces ♥️ React
+# GitHub Codespaces ♥️ React - Aplicación de Galería de Álbumes
 
-Welcome to your shiny new Codespace running React! We've got everything fired up and running for you to explore React.
+Bienvenido a esta aplicación React con autenticación y galería de álbumes. Una aplicación moderna con interfaz intuitiva y funcionalidades completas.
 
-You've got a blank canvas to work on from a git perspective as well. There's a single initial commit with the what you're seeing right now - where you go from here is up to you!
+## 📋 Características Implementadas
 
-Everything you do here is contained within this one codespace. There is no repository on GitHub yet. If and when you’re ready you can click "Publish Branch" and we’ll create your repository and push up your project. If you were just exploring then and have no further need for this code then you can simply delete your codespace and it's gone forever.
+### ✅ Autenticación
+- **Sistema de Login** con credenciales hardcodeadas
+  - Usuario: `admin`
+  - Contraseña: `1234`
+- Validación de credenciales
+- Almacenamiento de usuario en localStorage
+- Botón "Cerrar Sesión" para logout
+- Contexto global de autenticación con `AuthProvider`
 
-This project was bootstrapped for you with [Vite](https://vitejs.dev/).
+### ✅ Galería de Álbumes
+- Consume datos de la API: `https://jsonplaceholder.typicode.com/albums`
+- Muestra 100 álbumes con información estructurada:
+  - ID del álbum
+  - Título del álbum
+  - Usuario propietario
+  - Cantidad de fotos (simulada)
+- Botón "Cargar Álbumes" para obtener datos
+- Indicador de carga con spinner
 
-## Available Scripts
+### ✅ Paginación
+- Muestra **10 álbumes por página**
+- Navegación con botones "Anterior" y "Siguiente"
+- Información de página actual (Ej: "Página 1 de 10")
+- Muestra rango de álbumes mostrados (Ej: "Mostrando 1-10 de 100")
+- Botones deshabilitados en primera/última página
 
-In the project directory, you can run:
+### ✅ Interfaz Visual
+- Diseño responsive y moderno
+- Grid layout con espaciado uniforme (gap: 50px)
+- Tarjetas de álbumes con efectos hover
+- Barra superior con información del usuario
+- Botón de logout en la esquina superior derecha
+- Fuente Google Fonts "Poppins" en toda la aplicación
+- Gradientes de color consistentes (púrpura/azul)
+
+## 🗂️ Estructura del Proyecto
+
+```
+src/
+├── components/
+│   ├── Login.jsx          # Componente de autenticación
+│   ├── Albums.jsx         # Componente principal de galería
+│   └── Album.jsx          # Componente de tarjeta individual
+├── context/
+│   └── AuthContext.jsx    # Contexto global de autenticación
+├── services/
+│   └── albumService.js    # Servicio para consumir API de álbumes
+├── styles/
+│   ├── Login.css          # Estilos del login
+│   ├── Albums.css         # Estilos de la galería
+│   └── Album.css          # Estilos de las tarjetas
+├── App.jsx                # Componente raíz
+├── App.css                # Estilos globales
+├── index.jsx              # Punto de entrada
+└── index.css              # Estilos base
+```
+
+## 🚀 Flujo de la Aplicación
+
+1. **Inicio** → Usuario ve pantalla de login
+2. **Autenticación** → Inicia sesión con admin/1234
+3. **Galería** → Se muestra la página de álbumes
+4. **Carga de datos** → Presiona "Cargar Álbumes" para obtener datos de la API
+5. **Navegación** → Usa los botones de paginación para explorar los 100 álbumes
+6. **Logout** → Presiona "Cerrar Sesión" para volver al login
+
+## 📱 Funcionalidades Técnicas
+
+- **Context API** para manejo global de autenticación
+- **Fetch API** para consumo de datos externos
+- **Hooks personalizados** `useAuth()` para acceso a autenticación
+- **Componentes reutilizables** (Album, Albums, Login)
+- **Paginación manual** implementada con estado local
+- **Manejo de errores** en consumo de API
+- **Responsive design** adaptable a todos los dispositivos
+
+## 💻 Scripts Disponibles
 
 ### `npm start`
-
-We've already run this for you in the `Codespaces: server` terminal window below. If you need to stop the server for any reason you can just run `npm start` again to bring it back online.
-
-Runs the app in the development mode.\
-Open [http://localhost:3000/](http://localhost:3000/) in the built-in Simple Browser (`Cmd/Ctrl + Shift + P > Simple Browser: Show`) to view your running application.
-
-The page will reload automatically when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Inicia el servidor de desarrollo en http://localhost:3000/
 
 ### `npm run build`
+Construye la aplicación para producción
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### `npm test`
+Ejecuta los tests en modo watch
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🎨 Paleta de Colores
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Gradiente Principal**: `#667eea` a `#764ba2` (púrpura/azul)
+- **Fondo**: Gradiente gris claro
+- **Texto Primario**: `#333`
+- **Texto Secundario**: `#666`
+- **Error**: `#c33`
 
-## Learn More
+## 📦 Dependencias Principales
 
-You can learn more in the [Vite documentation](https://vitejs.dev/guide/).
+- **React 18+**: Framework de UI
+- **Vite**: Bundler y dev server
+- **Google Fonts Poppins**: Tipografía
 
-To learn Vitest, a Vite-native testing framework, go to [Vitest documentation](https://vitest.dev/guide/)
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://sambitsahoo.com/blog/vite-code-splitting-that-works.html](https://sambitsahoo.com/blog/vite-code-splitting-that-works.html)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer](https://github.com/btd/rollup-plugin-visualizer#rollup-plugin-visualizer)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf](https://dev.to/hamdankhan364/simplifying-progressive-web-app-pwa-development-with-vite-a-beginners-guide-38cf)
-
-### Advanced Configuration
-
-This section has moved here: [https://vitejs.dev/guide/build.html#advanced-base-options](https://vitejs.dev/guide/build.html#advanced-base-options)
-
-### Deployment
-
-This section has moved here: [https://vitejs.dev/guide/build.html](https://vitejs.dev/guide/build.html)
-
-### Troubleshooting
-
-This section has moved here: [https://vitejs.dev/guide/troubleshooting.html](https://vitejs.dev/guide/troubleshooting.html)
+Este proyecto fue construido con ♥️ usando React y Vite en GitHub Codespaces.
