@@ -5,7 +5,7 @@ import '../styles/Login.css';
 export const Login = () => {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const { login, loading, error, user } = useAuth();
+  const { login, loading, error, user, logout } = useAuth();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -26,6 +26,9 @@ export const Login = () => {
           <h2>¡Bienvenido!</h2>
           <p>Usuario: <strong>{user.username}</strong></p>
           <p>Nombre: <strong>{user.name}</strong></p>
+          <button onClick={logout} className="logout-button">
+            Cerrar Sesión
+          </button>
         </div>
       </div>
     );
@@ -64,11 +67,7 @@ export const Login = () => {
           />
         </div>
 
-        <div className="credentials-hint">
-          <p>Credenciales de prueba:</p>
-          <p>Usuario: <strong>admin</strong></p>
-          <p>Contraseña: <strong>1234</strong></p>
-        </div>
+
 
         <button type="submit" disabled={loading} className="login-button">
           {loading ? 'Cargando...' : 'Entrar'}

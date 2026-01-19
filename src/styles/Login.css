@@ -134,3 +134,27 @@
   color: #333;
   font-weight: 600;
 }
+
+.logout-button {
+  margin-top: 25px;
+  padding: 12px 30px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+
+.logout-button:hover {
+  background: #c0392b;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(231, 76, 60, 0.4);
+}
+
+.logout-button:active {
+  transform: translateY(0);
+}
