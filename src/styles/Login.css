@@ -158,3 +158,123 @@
 .logout-button:active {
   transform: translateY(0);
 }
+
+@media (max-width: 768px) {
+  .login-container {
+    padding: 20px;
+  }
+
+  .login-form {
+    padding: 30px 20px;
+  }
+
+  .login-form h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+  }
+
+  .form-group {
+    margin-bottom: 16px;
+  }
+
+  .form-group input {
+    padding: 11px;
+    font-size: 16px;
+  }
+
+  .credentials-hint {
+    font-size: 12px;
+    padding: 12px;
+  }
+
+  .credentials-hint p {
+    margin: 3px 0;
+  }
+
+  .login-button {
+    padding: 11px;
+    font-size: 14px;
+  }
+
+  .logged-in {
+    padding: 30px 20px;
+  }
+
+  .logged-in h2 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .logged-in p {
+    font-size: 14px;
+    margin: 12px 0;
+  }
+
+  .logout-button {
+    font-size: 13px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-container {
+    padding: 10px;
+  }
+
+  .login-form {
+    padding: 20px 15px;
+    max-width: 100%;
+  }
+
+  .login-form h2 {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+
+  .form-group label {
+    font-size: 13px;
+    margin-bottom: 6px;
+  }
+
+  .form-group input {
+    padding: 10px;
+    font-size: 14px;
+    border-radius: 4px;
+  }
+
+  .error-message {
+    font-size: 12px;
+    padding: 10px;
+  }
+
+  .credentials-hint {
+    font-size: 11px;
+    padding: 10px;
+    margin-bottom: 15px;
+  }
+
+  .login-button {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .logged-in {
+    padding: 20px 15px;
+    max-width: 100%;
+  }
+
+  .logged-in h2 {
+    font-size: 18px;
+  }
+
+  .logged-in p {
+    font-size: 13px;
+    margin: 10px 0;
+  }
+
+  .logout-button {
+    font-size: 12px;
+    padding: 9px 15px;
+    margin-top: 15px;
+  }
+}

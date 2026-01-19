@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Album } from './Album';
 import { albumService } from '../services/albumService';
 import { useAuth } from '../context/AuthContext';
+import { AddAlbumModal } from './AddAlbumModal';
 import '../styles/Albums.css';
 
 export const Albums = () => {
@@ -10,6 +11,7 @@ export const Albums = () => {
   const [error, setError] = useState(null);
   const [loaded, setLoaded] = useState(false);
   const [currentPage, setCurrentPage] = useState(1);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const { logout, user } = useAuth();
 
   const ITEMS_PER_PAGE = 10;
@@ -49,6 +51,20 @@ export const Albums = () => {
 
   const handlePageClick = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleAddAlbum = (newAlbumData) => {
+    const newAlbum = {
+      id: albums.length > 0 ? Math.max(...albums.map(a => a.id)) + 1 : 1,
+      ...newAlbumData,
+      userId: parseInt(newAlbumData.userId),
+      title: newAlbumData.title,
+      photoCount: Math.floor(Math.random() * 50) + 10,
+      formattedId: `Album #${albums.length + 1}`,
+      formattedTitle: newAlbumData.title.charAt(0).toUpperCase() + newAlbumData.title.slice(1)
+    };
+    
+    setAlbums(prevAlbums => [...prevAlbums, newAlbum]);
   };
 
   return (
@@ -134,6 +150,20 @@ export const Albums = () => {
           <p>No hay álbumes disponibles</p>
         </div>
       )}
+
+      <button 
+        className="floating-button"
+        onClick={() => setIsModalOpen(true)}
+        title="Agregar nuevo álbum"
+      >
+        +
+      </button>
+
+      <AddAlbumModal 
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onAdd={handleAddAlbum}
+      />
     </div>
   );
 };

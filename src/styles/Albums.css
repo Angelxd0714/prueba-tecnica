@@ -153,6 +153,8 @@
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px 40px 20px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .error-message {
@@ -244,47 +246,70 @@
 }
 
 @media (max-width: 768px) {
-  .albums-container {
-    padding: 20px 10px;
+  .albums-top-bar {
+    padding: 12px 16px;
+    gap: 12px;
+    flex-wrap: wrap;
   }
 
-  .albums-header h1 {
-    font-size: 28px;
+  .user-info {
+    font-size: 13px;
   }
 
-  .albums-grid {
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
-  }
-}
-
-@media (max-width: 480px) {
-  .albums-header h1 {
-    font-size: 24px;
-  }
-
-  .albums-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .load-button {
-    padding: 12px 30px;
-    font-size: 14px;
-  }
-
-  .pagination-container {
-    gap: 10px;
-    padding: 20px 10px;
-  }
-
-  .pagination-button {
-    min-width: 100px;
-    padding: 8px 16px;
+  .logout-button-albums {
+    padding: 7px 14px;
     font-size: 12px;
   }
 
-  .pagination-info {
-    gap: 3px;
+  .albums-header {
+    padding: 25px 16px 0 16px;
+    margin-bottom: 25px;
+  }
+
+  .albums-header h1 {
+    font-size: 26px;
+    margin-bottom: 6px;
+  }
+
+  .albums-header p {
+    font-size: 13px;
+  }
+
+  .load-button-container {
+    padding: 0 16px;
+    margin-bottom: 20px;
+  }
+
+  .load-button {
+    padding: 11px 25px;
+    font-size: 13px;
+  }
+
+  .albums-info {
+    padding: 10px 16px;
+    margin: 0 16px 20px 16px;
+    font-size: 12px;
+  }
+
+  .albums-grid {
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 30px;
+    padding: 0 16px 30px 16px;
+  }
+
+  .error-message {
+    margin: 0 16px 15px 16px;
+    font-size: 12px;
+  }
+
+  .pagination-container {
+    padding: 15px 16px;
+    gap: 12px;
+  }
+
+  .pagination-button {
+    padding: 8px 14px;
+    font-size: 12px;
   }
 
   .pagination-info span {
@@ -292,6 +317,176 @@
   }
 
   .pagination-items {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 600px) {
+  .albums-top-bar {
+    padding: 10px 12px;
+    gap: 10px;
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .logout-button-albums {
+    width: 100%;
+  }
+
+  .albums-header {
+    padding: 20px 12px 0 12px;
+    margin-bottom: 20px;
+  }
+
+  .albums-header h1 {
+    font-size: 22px;
+  }
+
+  .albums-header p {
+    font-size: 12px;
+  }
+
+  .load-button-container {
+    padding: 0 12px;
+    margin-bottom: 15px;
+  }
+
+  .load-button {
+    padding: 10px 18px;
+    font-size: 12px;
+  }
+
+  .albums-grid {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 0 12px 25px 12px;
+  }
+
+  .error-message {
+    margin: 0 12px 12px 12px;
     font-size: 11px;
+  }
+
+  .albums-info {
+    padding: 8px 12px;
+    margin: 0 12px 15px 12px;
+    font-size: 11px;
+  }
+
+  .pagination-container {
+    flex-direction: column;
+    padding: 12px;
+    gap: 10px;
+  }
+
+  .pagination-button {
+    width: 100%;
+    padding: 9px 12px;
+    font-size: 11px;
+  }
+
+  .pagination-info {
+    width: 100%;
+  }
+
+  .pagination-info span {
+    font-size: 11px;
+  }
+
+  .pagination-items {
+    font-size: 9px;
+  }
+}
+
+@media (max-width: 480px) {
+  .albums-container {
+    padding: 0;
+  }
+
+  .albums-top-bar {
+    padding: 8px 10px;
+    gap: 8px;
+  }
+
+  .user-info {
+    font-size: 11px;
+  }
+
+  .logout-button-albums {
+    padding: 6px 12px;
+    font-size: 11px;
+  }
+
+  .albums-header {
+    padding: 15px 10px 0 10px;
+    margin-bottom: 15px;
+  }
+
+  .albums-header h1 {
+    font-size: 18px;
+    margin-bottom: 4px;
+  }
+
+  .albums-header p {
+    font-size: 11px;
+  }
+
+  .load-button-container {
+    padding: 0 10px;
+    margin-bottom: 12px;
+  }
+
+  .load-button {
+    padding: 9px 15px;
+    font-size: 11px;
+    gap: 6px;
+  }
+
+  .spinner {
+    width: 13px;
+    height: 13px;
+    border-width: 2px;
+  }
+
+  .albums-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+    padding: 0 10px 20px 10px;
+  }
+
+  .error-message {
+    margin: 0 10px 10px 10px;
+    font-size: 10px;
+    padding: 8px 10px;
+  }
+
+  .albums-info {
+    padding: 8px 10px;
+    margin: 0 10px 12px 10px;
+    font-size: 10px;
+  }
+
+  .pagination-container {
+    flex-direction: column;
+    padding: 10px;
+    gap: 8px;
+  }
+
+  .pagination-button {
+    width: 100%;
+    padding: 8px 10px;
+    font-size: 10px;
+  }
+
+  .pagination-info {
+    width: 100%;
+  }
+
+  .pagination-info span {
+    font-size: 10px;
+  }
+
+  .pagination-items {
+    font-size: 8px;
   }
 }
